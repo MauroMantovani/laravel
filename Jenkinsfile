@@ -32,5 +32,6 @@ node('php'){
     
     stage('Docker Ship') {
         sh 'docker push jeffersonsouza/laravel:$BUILD_NUMBER'
+        sh 'docker rmi -f mauromantovani/laravel:$BUILD_NUMBER' // deleta as imagens antigas 
     }
 }
