@@ -8,6 +8,10 @@ node('php'){
         checkout scm
     }
     
+   stage('build app'){
+   sh 'composer install --no-scripts --prefer-dist --no-dev --ignore-platform-reqs'
+ }
+    
     stage('Build'){
         sh 'composer install --no-scripts --prefer-dist --no-dev --ignore-platform-reqs'
     }
