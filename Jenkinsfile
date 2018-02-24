@@ -27,11 +27,11 @@ node('php'){
         )
     }
     stage('Docker Build') {
-        sh 'docker build -t jeffersonsouza/laravel:$BUILD_NUMBER .'
+        sh 'docker build -t mauromantovani/laravel:$BUILD_NUMBER .'
     }
     
     stage('Docker Ship MM') {
-        sh 'docker push jeffersonsouza/laravel:$BUILD_NUMBER'
+        sh 'docker push mauromantovani/laravel:$BUILD_NUMBER'
         sh 'docker rmi -f mauromantovani/laravel:$BUILD_NUMBER' // deleta as imagens antigas 
     }
 }
